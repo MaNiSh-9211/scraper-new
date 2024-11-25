@@ -1,0 +1,258 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Ensures full coverage of the viewport */
+    overflow: hidden; /* Prevents scrollbars if there's any overflow */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: black; /* Text color for better contrast */
+    background: radial-gradient(circle at 0.8% 3.1%, rgb(255, 188, 224) 0%, rgb(170, 165, 255) 46%, rgb(165, 255, 205) 100.2%);
+    background-attachment: fixed; /* Fixes the gradient to the viewport */
+    background-size: 200%; /* Increases the gradient area for a more infinite look */
+    background-repeat: no-repeat;
+    background-position: center; /* Ensures the gradient stays centered */
+    display: flex; /* Makes body content flex-centered (optional) */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000; /* Dark black */
+    padding: 10px 10px 10px 10px;
+    position: relative; /* Ensure navbar stays at the top */
+    height: 6vh;
+    width: 100vw;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid white; /* Adjust width (5px) and color (white) as needed */
+}
+
+.brand-img img {
+    margin-right: 10px;
+    height: 40px; /* Adjust image height */
+    width: 40px; /* Adjust image width */
+    background-color: white;
+    border-radius: 5px; 
+    border-color: #000000; 
+}
+
+.brand-name {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.nav-links a {
+    color:transparent;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    background: radial-gradient(circle at 0.8% 3.1%, 
+        rgb(255, 188, 224) 0%, 
+        rgb(170, 165, 255) 46%, 
+        rgb(165, 255, 205) 100.2%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* For other modern browsers */
+    color: transparent; /* Ensures the gradient is visible */}
+
+.nav-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    flex-direction:row-reverse;        /* Stack items vertically */
+    justify-content: space-evenly; /* Distribute space evenly between items */
+    align-items: center;           /* Center horizontally */
+    height: 94vh;                  /* Set the height of the container */
+    gap: 20px;                /* Add some space between items */
+}
+
+.form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 40vw;                   /* Adjust the width */
+    text-align: center;
+    position: relative;
+    
+}
+
+  .form-container::before,
+  .form-container::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background: radial-gradient(circle at 0.8% 3.1%, rgb(255, 188, 224) 0%, rgb(170, 165, 255) 46%, rgb(165, 255, 205) 100.2%);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -100;
+    animation: animate 25s linear infinite;
+    border-radius: 8px ;
+  }
+  
+  .form-container::after {
+    filter: blur(25px);
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: 0 0;
+    }
+  
+    50% {
+      background-position: 400% 0;
+    }
+  
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+
+.response-container {
+    display: flex;                 /* Initially hidden */
+    width: 40vw;                   /* Same width as the form container */
+    backdrop-filter: blur(5px) saturate(200%);
+    -webkit-backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+        padding: 0px 20px 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;            /* Enable vertical scrolling */
+    overflow-x: hidden;            /* Prevent horizontal scrolling */
+    scrollbar-width: none;         /* Hide scrollbar in Firefox */
+    border-radius: 8px;
+    height: 84vh;
+    /* margin-top: 1vh;
+    margin-bottom: 1vh; */
+}
+
+.response-container::-webkit-scrollbar {
+    display: none;                 /* Hide scrollbar in Chrome, Edge, and Safari */
+}
+
+
+.form-container h1 {
+    
+    margin-bottom: 20px;
+    color: black; /* Adjusted text color */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: 1px solid black; /* Darker border */
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    resize: none; /* Prevent user from resizing (removes the handle) */
+    min-height: auto;
+    background-color: white; /* Darker input background */
+    color: black; /* Input text color */
+    filter: drop-shadow(10px 10px 2px #343432);
+    max-height: 35vh;
+}
+
+button[type="submit"] {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+button[type="submit"] {
+    height: 40px;
+    width: 40px;
+    margin-left: 15px;
+    border:1px solid black;
+    border-radius: 5px;
+    color:white;
+    background-color: black;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    filter: drop-shadow(5px 5px 1px #343432);
+
+   /*  border-radius: 0 4px 4px 0;*/
+}
+
+button[type="submit"].clicked {   
+     background-color: white; /* Darker hover background */
+    color: #000000;
+    
+}
+button[type="submit"]:hover {
+    transform: scale(1.1); /* Increase size by 10% */
+}
+
+
+.user-prompt{
+    display :flex;
+     flex-direction: row;
+    /* z-index: 10; */
+    background-color: white;
+    gap :5vw;
+}
+.response-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+    position: sticky; /* Fix the element's position */
+    top: 0; /* Stick it at the top of the container */
+    background-color: white; /* Maintain white background */
+    z-index: 10; /* Ensure it stays above other content */
+    text-align: center; /* Center the text */
+    border-radius: 3px;
+}
+.response-content {
+    color: black;
+    background-color: transparent;
+
+    /* border: 1px solid rgba(209, 213, 219, 0.3); */
+}
+.response-content > div {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+.timestamp{
+    margin:10px;
+    /* border: 1px solid black; */
+}
