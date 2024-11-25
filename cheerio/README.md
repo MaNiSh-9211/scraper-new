@@ -1,0 +1,1 @@
+npm exec puppeteer browsers install chrome@126.0.6478.126
