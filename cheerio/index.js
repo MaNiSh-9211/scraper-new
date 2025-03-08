@@ -239,6 +239,3 @@ app.delete('/chat/:id', async (req, res) => {
 });
 
 
-// In index.js, added session import at the top and passed app to sessionStore.
-// In mongodb.js, reordered imports to ensure session is initialized before using it with connect-mongodb-session.
-// These changes should keep the session initialization within the sessionStore function and avoid the ReferenceError.
