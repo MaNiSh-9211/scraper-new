@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
-const uri = 'mongodb+srv://manish9211:MaNiSh9211@cluster9211.be3bfds.mongodb.net/registration?retryWrites=true&w=majority';
+const uri = '';
 
 // Function to connect to the database
 const dbConnect = () => {
