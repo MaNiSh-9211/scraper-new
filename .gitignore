@@ -1,2 +1,7 @@
 
 node_modules/
+
+# --- security: local env & deps ---
+.env
+.env.*
+!*.env.example
